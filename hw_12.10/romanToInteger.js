@@ -1,0 +1,29 @@
+
+var romanToInt = function(s) {
+
+    const map = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    };
+    const size = s.length; 
+    
+    let res = 0;
+    for(let i = 0; i < size; ++i){
+        if(map[s[i]] < map[s[i + 1]]){
+            res += map[s[i + 1]] - map[s[i]];
+            ++i;
+            continue;
+        }
+        res+= map[s[i]]
+    }
+return res;
+}
+
+const s = "MCMXCIV";
+
+console.log(romanToInt(s));
